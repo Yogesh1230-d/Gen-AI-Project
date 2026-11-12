@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Swaad Ghar - Indian Food Showcase</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Our own CSS -->
+  <link rel="stylesheet" href="style (3).css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR (Bootstrap navbar + responsive collapse) ===== -->
+  <nav class="navbar navbar-expand-md sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Swaad Ghar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuLinks">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuLinks">
+        <ul class="navbar-nav ms-auto align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cart">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-md-2">
+            <a class="btn btn-cart-nav" href="#cart">Cart <span id="cartCount" class="badge">0</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO (Flexbox) ===== -->
+  <header id="home" class="hero">
+    <div class="container hero-flex">
+      <div class="hero-text">
+        <h1>Ghar jaisa khana, now one click away</h1>
+        <p>Browse our menu of North Indian favourites, filter by category and add your picks to the cart.</p>
+        <a href="#menu" class="btn btn-main">See the menu</a>
+      </div>
+      <img class="hero-image" src="images/download%20(2).jpg" alt="Butter chicken in a serving dish">
+    </div>
+  </header>
+
+  <!-- ===== FEATURES (CSS Grid + HTML list) ===== -->
+  <section class="container features">
+    <ul class="feature-grid">
+      <li class="feature-item bg-mint">Fresh ingredients every day</li>
+      <li class="feature-item bg-lavender">Delivery in 30 minutes</li>
+      <li class="feature-item bg-butter">Free delivery above ₹499</li>
+    </ul>
+  </section>
+
+  <!-- ===== MENU / PRODUCTS ===== -->
+  <section id="menu" class="container section">
+    <h2 class="section-title">Our Menu</h2>
+
+    <!-- Filter buttons + search -->
+    <div class="filter-bar">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="starters">Starters</button>
+        <button class="filter-btn" data-category="main">Main Course</button>
+        <button class="filter-btn" data-category="bread">Breads &amp; Rice</button>
+        <button class="filter-btn" data-category="dessert">Desserts</button>
+        <button class="filter-btn" data-category="drink">Drinks</button>
+      </div>
+      <input type="text" id="searchBox" class="form-control search-box" placeholder="Search a dish...">
+    </div>
+
+    <!-- Bootstrap grid of cards: 1 column on mobile, 2 on tablet, 4 on desktop -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" id="productList">
+
+      <div class="col item" data-category="starters">
+        <div class="card food-card h-100">
+          <img class="food-img bg-peach" src="images/download.jpg" alt="Grilled paneer tikka">
+          <div class="card-body">
+            <span class="badge category-badge">Starters</span>
+            <h5 class="card-title">Paneer Tikka</h5>
+            <p class="card-text">Smoky cottage cheese cubes grilled in a tandoor.</p>
+            <p class="price">₹220</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="starters">
+        <div class="card food-card h-100">
+          <img class="food-img bg-butter" src="images/download%20(1).jpg" alt="Crispy vegetable samosas">
+          <div class="card-body">
+            <span class="badge category-badge">Starters</span>
+            <h5 class="card-title">Veg Samosa</h5>
+            <p class="card-text">Crispy pastry filled with spiced potato and peas (2 pcs).</p>
+            <p class="price">₹60</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="main">
+        <div class="card food-card h-100">
+          <img class="food-img bg-pink" src="images/download%20(2).jpg" alt="Butter chicken curry">
+          <div class="card-body">
+            <span class="badge category-badge">Main Course</span>
+            <h5 class="card-title">Butter Chicken</h5>
+            <p class="card-text">Tender chicken in a creamy tomato and butter gravy.</p>
+            <p class="price">₹320</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="main">
+        <div class="card food-card h-100">
+          <img class="food-img bg-peach" src="images/download%20(3).jpg" alt="Paneer butter masala">
+          <div class="card-body">
+            <span class="badge category-badge">Main Course</span>
+            <h5 class="card-title">Paneer Butter Masala</h5>
+            <p class="card-text">Soft paneer in a rich, mildly sweet tomato gravy.</p>
+            <p class="price">₹260</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="bread">
+        <div class="card food-card h-100">
+          <img class="food-img bg-butter" src="images/download%20(4).jpg" alt="Garlic naan">
+          <div class="card-body">
+            <span class="badge category-badge">Breads &amp; Rice</span>
+            <h5 class="card-title">Garlic Naan</h5>
+            <p class="card-text">Soft tandoori bread brushed with garlic and butter.</p>
+            <p class="price">₹70</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="bread">
+        <div class="card food-card h-100">
+          <img class="food-img bg-mint" src="images/download%20(5).jpg" alt="Vegetable biryani with basmati rice and spices">
+          <div class="card-body">
+            <span class="badge category-badge">Breads &amp; Rice</span>
+            <h5 class="card-title">Veg Biryani</h5>
+            <p class="card-text">Fragrant basmati rice cooked with vegetables and spices.</p>
+            <p class="price">₹240</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="dessert">
+        <div class="card food-card h-100">
+          <img class="food-img bg-pink" src="images/download%20(6).jpg" alt="Gulab jamun in sugar syrup">
+          <div class="card-body">
+            <span class="badge category-badge">Desserts</span>
+            <h5 class="card-title">Gulab Jamun</h5>
+            <p class="card-text">Warm milk dumplings soaked in sugar syrup (2 pcs).</p>
+            <p class="price">₹90</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="dessert">
+        <div class="card food-card h-100">
+          <img class="food-img bg-lavender" src="images/download%20(7).jpg" alt="Rasmalai served in saffron milk">
+          <div class="card-body">
+            <span class="badge category-badge">Desserts</span>
+            <h5 class="card-title">Rasmalai</h5>
+            <p class="card-text">Soft paneer discs in chilled saffron milk (2 pcs).</p>
+            <p class="price">₹110</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="drink">
+        <div class="card food-card h-100">
+          <img class="food-img bg-peach" src="images/download%20(8).jpg" alt="Hot masala chai">
+          <div class="card-body">
+            <span class="badge category-badge">Drinks</span>
+            <h5 class="card-title">Masala Chai</h5>
+            <p class="card-text">Hot milk tea brewed with ginger and cardamom.</p>
+            <p class="price">₹40</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col item" data-category="drink">
+        <div class="card food-card h-100">
+          <img class="food-img bg-butter" src="images/download%20(9).jpg" alt="Chilled mango lassi">
+          <div class="card-body">
+            <span class="badge category-badge">Drinks</span>
+            <h5 class="card-title">Mango Lassi</h5>
+            <p class="card-text">Thick, chilled yoghurt drink blended with ripe mango.</p>
+            <p class="price">₹80</p>
+            <div class="btn-row">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#detailModal">Details</button>
+              <button class="btn btn-add">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p id="noResult" class="text-center mt-4">No dishes found. Try another category or word.</p>
+  </section>
+
+  <!-- ===== CART (HTML Table) ===== -->
+  <section id="cart" class="container section">
+    <h2 class="section-title">Your Cart</h2>
+    <div class="table-responsive">
+      <table class="table cart-table">
+        <thead>
+          <tr>
+            <th>Dish</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cartBody">
+          <tr id="emptyRow"><td colspan="5" class="text-center">Your cart is empty. Add something tasty!</td></tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="text-end"><strong>Grand Total</strong></td>
+            <td colspan="2"><strong id="grandTotal">₹0</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="cart-actions">
+      <button id="clearCart" class="btn btn-details">Clear cart</button>
+      <button id="placeOrder" class="btn btn-main">Place order</button>
+    </div>
+    <p id="orderMsg" class="success-msg"></p>
+  </section>
+
+  <!-- ===== CONTACT FORM (HTML Form) ===== -->
+  <section id="contact" class="container section">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="form-box">
+      <form id="contactForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control" placeholder="Your name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" placeholder="you@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="topic" class="form-label">Topic</label>
+          <select id="topic" class="form-select">
+            <option>Feedback</option>
+            <option>Order issue</option>
+            <option>Bulk order</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" rows="3" class="form-control" placeholder="Write your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-main">Send message</button>
+        <p id="formMsg" class="success-msg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2026 Swaad Ghar | Team 6</p>
+  </footer>
+
+  <!-- ===== DETAILS MODAL (Bootstrap) ===== -->
+  <div class="modal fade" id="detailModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="modalImg" class="modal-image" alt="">
+          <p><span id="modalCat" class="badge category-badge"></span></p>
+          <p id="modalDesc"></p>
+          <p class="price" id="modalPrice"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-add" id="modalAdd" data-bs-dismiss="modal">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      var cart = [];          // list of {name, price, qty}
+      var currentDish = null; // dish shown in the modal
+
+      // Show price as rupees, e.g. 1250 -> ₹1,250
+      function rupees(n) {
+        return "₹" + n.toLocaleString("en-IN");
+      }
+
+      // Read dish details from a card using jQuery selectors
+      function getDish(card) {
+        return {
+          name: card.find(".card-title").text(),
+          price: parseInt(card.find(".price").text().replace("₹", "")),
+          desc: card.find(".card-text").text(),
+          cat: card.find(".category-badge").text(),
+          image: card.find(".food-img").attr("src"),
+          imageAlt: card.find(".food-img").attr("alt") || ""
+        };
+      }
+
+      // ---------- 1. FILTER BY CATEGORY ----------
+      $(".filter-btn").click(function () {
+        $(".filter-btn").removeClass("active");
+        $(this).addClass("active");
+
+        var category = $(this).data("category");
+        $("#searchBox").val("");
+
+        if (category === "all") {
+          $(".item").show();
+        } else {
+          $(".item").hide();
+          $(".item[data-category='" + category + "']").show();
+        }
+        checkEmpty();
+      });
+
+      // ---------- 2. SEARCH ----------
+      $("#searchBox").on("keyup", function () {
+        var text = $(this).val().toLowerCase();
+        $(".filter-btn").removeClass("active");
+        $(".filter-btn[data-category='all']").addClass("active");
+
+        $(".item").each(function () {
+          var name = $(this).find(".card-title").text().toLowerCase();
+          $(this).toggle(name.indexOf(text) > -1);
+        });
+        checkEmpty();
+      });
+
+      function checkEmpty() {
+        $("#noResult").toggle($(".item:visible").length === 0);
+      }
+
+      // ---------- 3. DETAILS MODAL ----------
+      $(".btn-details[data-bs-toggle]").click(function () {
+        currentDish = getDish($(this).closest(".card"));
+        $("#modalTitle").text(currentDish.name);
+        if (currentDish.image) {
+          $("#modalImg").attr("src", currentDish.image).attr("alt", currentDish.imageAlt).show();
+        } else {
+          $("#modalImg").hide();
+        }
+        $("#modalCat").text(currentDish.cat);
+        $("#modalDesc").text(currentDish.desc);
+        $("#modalPrice").text(rupees(currentDish.price));
+      });
+
+      $("#modalAdd").click(function () {
+        addToCart(currentDish);
+      });
+
+      // ---------- 4. CART ----------
+      $(".btn-add").not("#modalAdd").click(function () {
+        addToCart(getDish($(this).closest(".card")));
+      });
+
+      function addToCart(dish) {
+        var found = false;
+        $.each(cart, function (i, item) {
+          if (item.name === dish.name) {
+            item.qty++;
+            found = true;
+          }
+        });
+        if (!found) {
+          cart.push({ name: dish.name, price: dish.price, qty: 1 });
+        }
+        showCart();
+      }
+
+      function showCart() {
+        $("#cartBody").empty();   // clear old rows
+        var total = 0, count = 0;
+
+        if (cart.length === 0) {
+          $("#cartBody").append('<tr><td colspan="5" class="text-center">Your cart is empty. Add something tasty!</td></tr>');
+        }
+
+        $.each(cart, function (i, item) {
+          var rowTotal = item.price * item.qty;
+          total += rowTotal;
+          count += item.qty;
+          $("#cartBody").append(
+            "<tr>" +
+              "<td>" + item.name + "</td>" +
+              "<td>" + rupees(item.price) + "</td>" +
+              "<td>" + item.qty + "</td>" +
+              "<td>" + rupees(rowTotal) + "</td>" +
+              '<td><button class="btn btn-remove" data-index="' + i + '">X</button></td>' +
+            "</tr>"
+          );
+        });
+
+        $("#grandTotal").text(rupees(total));
+        $("#cartCount").text(count);
+      }
+
+      // Remove button (rows are created later, so we use event delegation)
+      $("#cartBody").on("click", ".btn-remove", function () {
+        cart.splice($(this).data("index"), 1);
+        showCart();
+      });
+
+      $("#clearCart").click(function () {
+        cart = [];
+        $("#orderMsg").hide();
+        showCart();
+      });
+
+      $("#placeOrder").click(function () {
+        if (cart.length === 0) {
+          $("#orderMsg").text("Please add at least one dish first.").addClass("error").fadeIn();
+        } else {
+          $("#orderMsg").text("Thank you! Your order of " + $("#grandTotal").text() + " has been placed.").removeClass("error").fadeIn();
+          cart = [];
+          showCart();
+        }
+      });
+
+      // ---------- 5. CONTACT FORM ----------
+      $("#contactForm").submit(function (e) {
+        e.preventDefault();
+        var name = $("#name").val().trim();
+        var email = $("#email").val().trim();
+        var message = $("#message").val().trim();
+
+        if (name === "" || email === "" || message === "") {
+          $("#formMsg").text("Please fill in all the fields.").addClass("error").fadeIn();
+        } else {
+          $("#formMsg").text("Thanks " + name + ", we got your message!").removeClass("error").fadeIn();
+          this.reset();
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
